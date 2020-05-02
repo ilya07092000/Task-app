@@ -6,7 +6,7 @@
           <h4>{{ task.title }}</h4>
           <p class="task__status" :class="task.status">{{ task.status }}</p>
         </div>
-        <img class="arrow" src="../../public/img/icons/down-arrow.svg" @click="expandTask" alt />
+        <img src="../../public/img/icons/down-arrow.svg" @click="expandTask" alt />
       </div>
       <div class="task__description">
         <p>{{ task.description }}</p>
@@ -40,13 +40,12 @@
             <option value="active">Active</option>
             <option value="completed">Completed</option>
           </select>
-          <img class="arrow" src="../../public/img/icons/down-arrow.svg" alt />
         </div>
         <div class="task__description">
           <p>{{ task.description }}</p>
         </div>
         <div class="tasks__item__expand">
-          <textarea v-model="task.description" name id cols="100" rows="10"></textarea>
+          <textarea v-model="task.description" name id></textarea>
 
           <div class="tasks__item__expand__btns">
             <button type="submit" class="edit__btn">Save</button>
@@ -64,13 +63,8 @@ export default {
     return {
       edit: false,
       isActive: false,
-      submitStatus: null
+      submitStatus: null,
     };
-  },
-  computed: {
-    tasks() {
-      return this.$store.getters.tasks;
-    }
   },
   methods: {
     expandTask() {
@@ -117,8 +111,12 @@ export default {
   }
 }
 .task__title__left {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .tasks__item {
   border: 2px solid rgb(52, 170, 52);
@@ -130,19 +128,29 @@ export default {
     padding-top: 15px;
     border-top: 1px solid #e5e5e5;
     display: none;
+    -webkit-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
     transition: all 0.2s linear;
   }
 }
 .tasks__item.active .tasks__item__expand {
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
   display: block;
 }
 .title {
   position: relative;
   margin-top: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   & h4 {
     font-size: 20px;
     margin-bottom: 10px;
@@ -154,6 +162,8 @@ export default {
     padding: 10px;
     border-radius: 25px;
     cursor: pointer;
+    -webkit-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
     transition: all 0.2s linear;
     &:hover {
       background-color: rgb(241, 235, 235);
@@ -183,14 +193,17 @@ export default {
   background-color: rgba(194, 51, 26, 0.7);
 }
 .tasks__item.active .arrow {
-  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
   background-color: rgb(241, 235, 235);
 }
 .task__description {
   & p {
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
     width: 50%;
   }
 }
@@ -202,8 +215,12 @@ export default {
 }
 .tasks__item__expand__btns {
   margin-top: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .edit__btn,
 .complete__btn,
@@ -219,7 +236,6 @@ export default {
     outline: none;
   }
 }
-
 .edit__btn {
   margin-right: 20px;
   background-color: rgb(75, 131, 75);
@@ -238,22 +254,39 @@ export default {
   font-size: 15px;
   width: 250px;
   padding: 5px;
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
   margin-bottom: 10px;
 }
 textarea {
   padding: 5px;
   font-size: 14px;
+  width: 100%;
+  min-height: 100px;
+  border: 1px solid green;
 }
 .select__status {
   margin-left: 10px;
   font-size: 15px;
   border-radius: 10px;
 }
-
 @media (max-width: 400px) {
   .tasks__item__expand__btns {
-    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+@media (max-width: 410px) {
+  .title {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .input__title {
+    width: 100%;
+  }
+  .select__status {
+    margin: 0 0 10px 0;
   }
 }
 </style>

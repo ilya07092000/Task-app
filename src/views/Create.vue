@@ -4,27 +4,24 @@
 
     <form action @submit.prevent="createData">
       <div class="form__group">
-        <label for="title" :class="{'label__error': $v.title.$error}">Title:</label>
-        <input
-          type="text"
-          name="title"
-          id
-          v-model="title"
-          :class="{'input__error': $v.title.$error}"
-        />
+        <p>
+          <label for="title" :class="{'label__error': $v.title.$error}">Title:</label>
+          <input
+            type="text"
+            name="title"
+            id
+            v-model="title"
+            :class="{'input__error': $v.title.$error}"
+          />
+        </p>
         <p class="error" v-if="$v.title.$error">This field is required</p>
       </div>
 
       <div class="form__group">
-        <label for="description" :class="{'label__error': $v.description.$error}">Description:</label>
-        <input
-          type="text"
-          name="description"
-          id
-          v-model="description"
-          :class="{'input__error': $v.description.$error}"
-        />
-        <p class="error" v-if="$v.description.$error">This field is required</p>
+        <p>
+          <label for="description">Description:</label>
+          <input type="text" name="description" id v-model="description" />
+        </p>
       </div>
 
       <div class="form__group">
@@ -32,10 +29,10 @@
       </div>
     </form>
 
-      <div class="description">
-        <p>This app was made with Vue.js ( Vuex, Vue Router, Vue Validation) and JavaScript.</p>
-        <p>On this page you can create your task. Field "Title" and "Description" is required.</p>
-        <p>Your tasks will be in your local storage, so it will be your own tasks and always available, also you have opportunity to delete task.</p>
+    <div class="description">
+      <p>This app was made with Vue.js ( Vuex, Vue Router, Vue Validation) and JavaScript.</p>
+      <p>On this page you can create your task. Field "Title" is required.</p>
+      <p>Your tasks will be in your local storage, so it will be your own tasks and always available, also you have opportunity to delete task.</p>
     </div>
   </div>
 </template>
@@ -47,6 +44,7 @@ export default {
   data() {
     return {
       title: "",
+      status: "",
       description: "",
       submitStatus: null
     };
@@ -71,9 +69,6 @@ export default {
   validations: {
     title: {
       required
-    },
-    description: {
-      required
     }
   }
 };
@@ -92,29 +87,31 @@ export default {
     color: #13886b;
   }
 }
-
 input {
   border: none;
   border-bottom: 1px solid green;
   font-size: 15px;
-  width: 250px;
   padding: 5px;
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
-
 input:focus {
   outline: none;
   background-color: rgb(235, 224, 224);
 }
-
 label {
   font-size: 20px;
 }
-
 .form__group {
+  max-width: 350px;
+  width: 100%;
+  margin: 0 auto;
   margin-bottom: 25px;
 }
-
+input {
+  width: 100%;
+}
 .form__group button {
   background-color: transparent;
   border: none;
@@ -124,21 +121,19 @@ label {
   padding: 10px 15px;
   border-radius: 10px;
   cursor: pointer;
+  -webkit-transition: 0.1s linear;
+  -o-transition: 0.1s linear;
   transition: 0.1s linear;
 }
-
 .form__group button:hover {
   background-color: #09f7bb;
 }
-
 .form__group button:focus {
   outline: none;
 }
-
 .input__error {
   border-bottom: 1px solid red;
 }
-
 .label__error {
   color: red;
 }
@@ -155,4 +150,3 @@ label {
   }
 }
 </style>
-

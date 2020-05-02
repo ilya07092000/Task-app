@@ -17,16 +17,23 @@
 <style scoped>
 nav {
   background-color: #1de9b6;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
   padding: 15px;
 }
-
 .nav__inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
-
 .nav__inner a {
   text-decoration: none;
   color: #fff;
@@ -34,31 +41,30 @@ nav {
   font-size: 20px;
   margin-left: 15px;
   padding: 19px 10px;
-  transition: all .2s linear;
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
 }
-
-.nav__inner a:hover  {
- background-color: #2cc09b;
+.nav__inner a:hover {
+  background-color: #2cc09b;
 }
 .active {
-  background-color: #3caa8f;;
+  background-color: #3caa8f;
 }
 .nav__header h1 {
   color: rgb(255, 255, 255);
 }
-
 @media (max-width: 440px) {
- .nav__header h1 {
-   font-size: 16px;
- }
- .nav__inner a {
-   padding: 15px 10px;
- }
+  .nav__header h1 {
+    font-size: 16px;
+  }
+  .nav__inner a {
+    padding: 15px 10px;
+  }
 }
-
 @media (max-width: 357px) {
- .nav__header h1 {
+  .nav__header h1 {
     font-size: 11px;
- }
+  }
 }
 </style>
