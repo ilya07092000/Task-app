@@ -1,19 +1,4 @@
-# tasklist
+Task list made with Vue + Vuex + Vue Router + Vuelidate.
+There you can add, edit and delete tasks.
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+https://taskapp-b3a62.web.app/
